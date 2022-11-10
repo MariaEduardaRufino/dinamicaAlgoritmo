@@ -17,6 +17,7 @@
 
     Insira o tempo mímimo e máximo de voltas: <br>
     <input type="text" id="in_min">
+    <input type="text" id="in_max">
 
     <button onclick="largada()">Largada</button><br>
     <div id="div_volta"></div>
@@ -40,21 +41,24 @@
 
         var qtdvoltas = Number(in_voltas.value)
 
+        var min = Number(in_min.value)
+        var max = Number(in_max.value)
+
         div_volta.innerHMTL = ''
         div_mensagem.innerHMTL = ''
 
 
         // adicionando o contador e adicionando o ,ath ramdom para aleatoriezar os numeros
         for(var  i= 0; i < qtdvoltas; i++){
-            var horse1 = Number((7 + Math.random() * 2).toFixed(1))
-            var horse2 = Number((7 + Math.random() * 2).toFixed(1))
-            var horse3 = Number((7 + Math.random() * 2).toFixed(1))
+            var horse1 = Number((min + Math.random() * (max - min)).toFixed(1))
+            var horse2 = Number((min + Math.random() * (max - min)).toFixed(1))
+            var horse3 = Number((min + Math.random() * (max - min)).toFixed(1))
 
             somahorse1 += horse1 
             somahorse2 += horse2
             somahorse3 += horse3
 
-            div_volta.innerHTML += `Volta${i + 1}: Cavalo 1: ${horse1} - ${somahorse1}, - Cavalo 2: ${horse2} - ${somahorse2} Cavalo 3: ${horse3} - ${somahorse3}<br>`
+            div_volta.innerHTML += `Volta${i + 1}: ${horseName1}: ${horse1} - ${somahorse1}, - ${horseName2}: ${horse2} - ${somahorse2} ${horseName3}: ${horse3} - ${somahorse3}<br>`
             
             
 
