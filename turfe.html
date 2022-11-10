@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    Insira os nomes dos cavalos: <br>
+    <input type="text" id="in_nome1">
+    <input type="text" id="in_nome2">
+    <input type="text" id="in_nome3"><br><br>
+
+    Insira a uantidade de voltas: <br>
+    <input type="number" id="in_voltas"><br><br>
+
+    Insira o tempo mímimo e máximo de voltas: <br>
+    <input type="text" id="in_min">
+
     <button onclick="largada()">Largada</button><br>
     <div id="div_volta"></div>
     <div id="div_mensagem"></div>
@@ -22,36 +33,44 @@
     var ganhador = ''
     
     function largada(){
+        
+        var horseName1 = in_nome1.value
+        var horseName2 = in_nome2.value
+        var horseName3 = in_nome3.value
+
+        var qtdvoltas = Number(in_voltas.value)
 
         div_volta.innerHMTL = ''
         div_mensagem.innerHMTL = ''
 
 
         // adicionando o contador e adicionando o ,ath ramdom para aleatoriezar os numeros
-        for(var  i= 0; i < 7; i++){
+        for(var  i= 0; i < qtdvoltas; i++){
             var horse1 = Number((7 + Math.random() * 2).toFixed(1))
             var horse2 = Number((7 + Math.random() * 2).toFixed(1))
             var horse3 = Number((7 + Math.random() * 2).toFixed(1))
 
-            div_volta.innerHTML += `Volta${i + 1}: Cavalo 1: ${horse1} - ${somahorse1}, - Cavalo 2: ${horse2} - ${somahorse2} Cavalo 3: ${horse3} - ${somahorse3}<br>`
-            
             somahorse1 += horse1 
             somahorse2 += horse2
             somahorse3 += horse3
+
+            div_volta.innerHTML += `Volta${i + 1}: Cavalo 1: ${horse1} - ${somahorse1}, - Cavalo 2: ${horse2} - ${somahorse2} Cavalo 3: ${horse3} - ${somahorse3}<br>`
+            
+            
 
             console.log(somahorse1 + '' + somahorse2 + '' + somahorse3) // adicionado soma horse
         }
 
         if(somahorse1 < somahorse2 && somahorse1 < somahorse3){
-            ganhador = 'Cavalo 1'
+            ganhador = horseName1
         } else if (somahorse2 < somahorse1 && somahorse2 < somahorse3){
-            ganhador = 'Cavalo 2'
+            ganhador = horseName2
         } else {
-            ganhador= 'Cavalo 3'
+            ganhador= horseName3
         }
 
 
-        div_mensagem.innerHTML += `Tempo Cavalo 1: ${somahorse1} | Cavalo 2: ${somahorse2} | Cavalo 3: ${somahorse3}`
+        // div_mensagem.innerHTML += `Tempo Cavalo 1: ${somahorse1} | Cavalo 2: ${somahorse2} | Cavalo 3: ${somahorse3}`
         div_mensagem.innerHTML += ganhador
     }
 
