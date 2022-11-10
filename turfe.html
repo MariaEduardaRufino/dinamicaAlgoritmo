@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="largada()">Largada</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    // soma 
+    var horse1 = 0
+    var horse2 = 0
+    var horse3 = 0
+
+    function largada(){
+
+        // adicionando o contador e adicionando o ,ath ramdom para aleatoriezar os numeros
+        for(var  i= 0; i < 3; i++){
+            var horse = Number((7 + Math.random() * 2).toFixed(1))
+
+            div_mensagem.innerHTML += `Cavalo ${i + 1}: ${horse}, `
+            
+        }
+    }
+
+</script>
