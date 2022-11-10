@@ -12,7 +12,7 @@
     <input type="text" id="in_nome2">
     <input type="text" id="in_nome3"><br><br>
 
-    Insira a uantidade de voltas: <br>
+    Insira a quantidade de voltas: <br>
     <input type="number" id="in_voltas"><br><br>
 
     Insira o tempo mímimo e máximo de voltas: <br>
@@ -36,7 +36,8 @@
     var terceiro = ''
     
     function largada(){
-        div_mensagem.innerHMTL = ""
+        div_volta.innerHTML = ''
+        div_mensagem.innerHTML = ""
         
         var horseName1 = in_nome1.value
         var horseName2 = in_nome2.value
@@ -61,7 +62,7 @@
             somahorse2 += horse2
             somahorse3 += horse3
 
-            div_volta.innerHTML += `Volta${i + 1}: ${horseName1}: ${horse1} - ${somahorse1}, - ${horseName2}: ${horse2} - ${somahorse2} ${horseName3}: ${horse3} - ${somahorse3}<br>`
+            div_volta.innerHTML += `Volta ${i + 1}: ${horseName1}: ${horse1} - ${somahorse1.toFixed(2)}, || ${horseName2}: ${horse2} - ${somahorse2.toFixed(2)} || ${horseName3}: ${horse3} - ${somahorse3.toFixed(2)}<br>`
             
             
 
@@ -99,8 +100,8 @@
         
         
         // div_mensagem.innerHTML += `Tempo Cavalo 1: ${somahorse1} | Cavalo 2: ${somahorse2} | Cavalo 3: ${somahorse3}`
-        div_mensagem.innerHTML += `Cavalo ganhador: ${ganhador} `
-        div_mensagem.innerHTML += `Segundo lugar: ${segundo} `
+        div_mensagem.innerHTML += `Cavalo ganhador: ${ganhador} <br>`
+        div_mensagem.innerHTML += `Segundo lugar: ${segundo} <br>`
         div_mensagem.innerHTML += `Terceiro lugar: ${terceiro} `
     }
 
